@@ -274,7 +274,7 @@ These steps mirror those taken for setting up the Windows Server.
 3. Right-click on the active network adapter and select **Properties**.
 4. Select **Internet Protocol Version 4 (TCP/IPv4)** and click **Properties**.
 5. Choose **Use the following IP address** and enter the details:
-    - **IP Address**: `192.168.10.7`
+    - **IP Address**: `192.168.10.100`
     - **Subnet Mask**: `255.255.255.0`
     - **Default Gateway**: `192.168.10.1`
 6. Choose **Use the following DNS server addresses** and enter:
