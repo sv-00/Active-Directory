@@ -158,7 +158,7 @@ The steps here are the same as those done for the Windows client machine, except
   ```
 - Verify that Sysmon is running by checking its status:
   ```powershell
-  Get-Service Sysmon
+  Get-Service Sysmon64
   ```
 - Check logs in Event Viewer under `Applications and Services Logs > Microsoft > Windows > Sysmon`.
   
