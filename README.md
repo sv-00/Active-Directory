@@ -314,6 +314,45 @@ Follow the same steps used for Windows Server to install and configure the Splun
   Invoke-AtomicTest T1003 -CheckPrereqs
   ```
 
+- Ensure `Invoke-AtomicTest` is Always Available
+  - Check If a PowerShell Profile Exists
+    ```powershell
+        Test-Path $PROFILE
+    ```
+  - If it **returns `True`**, a profile exists.
+  - If it **returns `False`**, create one:
+
+  ```powershell
+    New-Item -Path $PROFILE -ItemType File -Force
+  ```
+
+  - Open the PowerShell Profile in Notepad
+    ```powershell
+      notepad $PROFILE
+    ```
+
+  - Paste the following lines into the **profile file** and save it:
+    ```powershell
+
+    # Import Atomic Red Team Module on Startup
+    Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+
+    # Set Default Parameter Values for Atomic Red Team
+    $PSDefaultParameterValues = @{
+      "Invoke-AtomicTest:PathToAtomicsFolder" = "C:\AtomicRedTeam\atomics"
+    }
+    ```
+
+  - After restarting PowerShell, verify the setup by running:
+    ```powershell
+    Get-Command Invoke-AtomicTest
+    ```
+
+  - If the command path is returned, the setup is successful.
+  - Now, `Invoke-AtomicTest` will work in every new PowerShell session **without manually importing the module**.
+
+---
+
 ### Joining Windows Client Machine to Active Directory
 
 #### Configure DNS Settings
