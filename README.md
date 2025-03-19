@@ -467,9 +467,10 @@ To allow remote access and perform brute-force testing from the attacker machine
   cp rockyou.txt ~/ad-project/
   ```
 - We won't be using the entire wordlist but only the first 20 lines for demonstration purposes.
-- Extract the first 20 lines and save them as `passwords.txt`:
+- Go to the Project directory & Extract the first 20 lines and save them as `passwords.txt`:
 
   ```sh
+  cd ~/ad-project
   head -n 20 rockyou.txt > passwords.txt
   ```
 - Open the `passwords.txt` file using the nano editor:
